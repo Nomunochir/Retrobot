@@ -3,67 +3,91 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Transcript — unban-0002</title>
+<title>Transcript #unban-0002 — Retro.mn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+:root{
+  --primary:#00ff88;--primary-dark:#00cc6a;
+  --bg:#0a0a0f;--card:#12121a;--card-hover:#1a1a25;
+  --text:#fff;--muted:#8888aa;--border:#1e1e2e;--live:#ff4444;
+}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:#1e1f22;color:#dcddde;font-family:'Segoe UI',sans-serif;font-size:14px}
-.header{background:#2b2d31;padding:24px 32px;border-bottom:2px solid #111214}
-.header h1{color:#fff;font-size:20px;margin-bottom:12px}
-.meta{display:flex;flex-wrap:wrap;gap:16px}
-.meta-item{background:#1e1f22;border-radius:8px;padding:10px 16px}
-.meta-item .label{color:#96989d;font-size:11px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
-.meta-item .value{color:#fff;font-weight:600}
-.meta-item .value.green{color:#23a55a}
-.badge{display:inline-block;background:#5865f2;color:#fff;border-radius:4px;padding:2px 8px;font-size:12px;margin-left:6px}
-.messages{padding:16px 32px;max-width:900px;margin:0 auto}
-.msg{display:flex;gap:12px;padding:8px 4px;margin-bottom:2px;border-radius:4px}
-.msg:hover{background:#2b2d31}
-.msg-bot{opacity:.9}
-.avatar{width:36px;height:36px;border-radius:50%;flex-shrink:0;margin-top:2px}
+body{
+  background:var(--bg);color:var(--text);font-size:15px;line-height:1.5;
+  font-family:'Inter',-apple-system,'Segoe UI',sans-serif;
+  background-image:radial-gradient(900px 480px at 50% -120px,rgba(0,255,136,.10),transparent 70%);
+  background-repeat:no-repeat;min-height:100vh;
+}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px}
+.header{padding:44px 0 22px}
+.brand{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.brand .logo{font-weight:800;font-size:21px;letter-spacing:-.6px}
+.brand .logo b{color:var(--primary)}
+.brand .chip{margin-left:auto;font-size:12px;font-weight:600;color:var(--muted);
+  border:1px solid var(--border);padding:5px 13px;border-radius:100px;background:var(--card)}
+.title{font-size:28px;font-weight:800;letter-spacing:-.7px;margin-bottom:4px}
+.title .hash{color:var(--primary)}
+.subtitle{color:var(--muted);font-size:14px;margin-bottom:26px}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px}
+.meta-item{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:14px 16px;transition:border-color .2s}
+.meta-item:hover{border-color:rgba(0,255,136,.35)}
+.meta-item .label{color:var(--muted);font-size:11px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.6px;margin-bottom:7px}
+.meta-item .value{font-weight:600;font-size:14px;word-break:break-word}
+.meta-item .value.green{color:var(--primary);font-size:18px}
+.divider{display:flex;align-items:center;gap:14px;margin:32px 0 6px;color:var(--muted);
+  font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.divider::before,.divider::after{content:'';height:1px;background:var(--border);flex:1}
+.messages{padding:12px 0 20px}
+.msg{display:flex;gap:14px;padding:11px 12px;border-radius:12px;transition:background .15s}
+.msg:hover{background:var(--card)}
+.avatar{width:42px;height:42px;border-radius:50%;flex-shrink:0;margin-top:1px;
+  border:1px solid var(--border);object-fit:cover}
 .msg-body{flex:1;min-width:0}
-.msg-name{font-weight:600;font-size:14px}
-.msg-time{color:#96989d;font-size:11px;margin-left:8px}
-.msg-text{margin-top:4px;line-height:1.5;white-space:pre-wrap;word-break:break-word}
-.embed{border-left:4px solid #5865f2;background:#2b2d31;border-radius:0 4px 4px 0;padding:10px 14px;margin-top:6px}
-.embed-title{color:#fff;font-weight:600;margin-bottom:6px}
-.embed-desc{color:#dcddde;line-height:1.5;font-size:13px}
-.att-img{max-width:300px;max-height:200px;border-radius:4px;margin-top:6px;display:block}
-.msg-file{margin-top:6px;color:#00b0f4}
-.msg-file a{color:#00b0f4;text-decoration:none}
-.footer{text-align:center;padding:24px;color:#96989d;font-size:12px;border-top:1px solid #2b2d31;margin-top:16px}
+.msg-name{font-weight:700;font-size:15px}
+.msg-bot .msg-name::after{content:'BOT';background:var(--primary);color:#04120b;font-size:9px;
+  font-weight:800;padding:2px 6px;border-radius:5px;margin-left:8px;vertical-align:middle;letter-spacing:.5px}
+.msg-time{color:var(--muted);font-size:11px;margin-left:8px;font-weight:500}
+.msg-text{margin-top:5px;line-height:1.6;white-space:pre-wrap;word-break:break-word;color:#dfe3ea}
+.msg-attachment{margin-top:8px}
+.att-img{max-width:340px;max-height:240px;border-radius:12px;border:1px solid var(--border);display:block}
+.msg-file{margin-top:8px}
+.msg-file a{color:var(--primary);text-decoration:none;font-weight:500}
+.msg-file a:hover{text-decoration:underline}
+.embed{border-left:3px solid var(--primary);background:var(--card);border-radius:0 12px 12px 0;
+  padding:13px 16px;margin-top:8px;max-width:520px}
+.embed-title{font-weight:700;margin-bottom:6px}
+.embed-desc{color:#c7ccd6;line-height:1.6;font-size:14px}
+.footer{text-align:center;padding:30px 0 46px;color:var(--muted);font-size:12px;
+  border-top:1px solid var(--border);margin-top:24px}
+.footer .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--primary);
+  margin-right:7px;box-shadow:0 0 8px var(--primary);vertical-align:middle}
+.footer a{color:var(--primary);text-decoration:none;font-weight:600}
+@media(max-width:600px){.title{font-size:23px}.avatar{width:36px;height:36px}.header{padding:32px 0 18px}}
 </style>
 </head>
 <body>
-<div class="header">
-  <h1>📋 Retro.mn — Ticket Transcript</h1>
-  <div class="meta">
-    <div class="meta-item">
-      <div class="label">Тикет</div>
-      <div class="value">#unban-0002</div>
+<div class="wrap">
+  <div class="header">
+    <div class="brand">
+      <span class="logo">RETRO<b>.MN</b></span>
+      <span class="chip">Ticket Transcript</span>
     </div>
-    <div class="meta-item">
-      <div class="label">Нээсэн хүн</div>
-      <div class="value">istillgotptsdd</div>
-    </div>
-    <div class="meta-item">
-      <div class="label">Нээсэн цаг</div>
-      <div class="value">2026.07.02 23:37:03</div>
-    </div>
-    <div class="meta-item">
-      <div class="label">Хаасан хүн</div>
-      <div class="value">istillgotptsdd</div>
-    </div>
-    <div class="meta-item">
-      <div class="label">Хаасан цаг</div>
-      <div class="value">2026.07.02 23:37:41</div>
-    </div>
-    <div class="meta-item">
-      <div class="label">Мессежийн тоо</div>
-      <div class="value green">5</div>
+    <div class="title"><span class="hash">#</span>unban-0002</div>
+    <div class="subtitle">Support тикетийн бүрэн харилцааны түүх</div>
+    <div class="meta">
+      <div class="meta-item"><div class="label">Нээсэн хүн</div><div class="value">istillgotptsdd</div></div>
+      <div class="meta-item"><div class="label">Нээсэн цаг</div><div class="value">2026.07.02 23:37:03</div></div>
+      <div class="meta-item"><div class="label">Хаасан хүн</div><div class="value">istillgotptsdd</div></div>
+      <div class="meta-item"><div class="label">Хаасан цаг</div><div class="value">2026.07.02 23:37:41</div></div>
+      <div class="meta-item"><div class="label">Мессеж</div><div class="value green">5</div></div>
     </div>
   </div>
-</div>
-<div class="messages">
+  <div class="divider">Харилцаа</div>
+  <div class="messages">
 <div class="msg msg-bot">
   <img class="avatar" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACjklEQVRYhe1WS28SURg9M3N5P+QxFIRgqUWikUUXbXUFG12oC+PCsDImJi70Hxg36oatSaPBmpj+CV1o1Gg0aUx9NJWKiRHE2i4AhSkCZWDGMFUMjQMDBdlwkpvMveeb7zv3zr1nLjU7PSNiiKCHWXwkYLQCDRClm6Xm0kPUKw6XQAEQyzWoNkqyMURJop9hN7hT42A+c+gWfMAC+3wc2kS+NwHFsBvlkAeuK4ug6t1bBnd6AnWLpjcfKIbdqIQ8YKNLPRX/+yHkQeQI/oAFpWNeOK69koqXp1hUgrZ/JhQgQs1VoX+5ASa31ZU8IkfUWS20bzLNmedOjmP9jK9tMl2pDt+NJZger/XfigkvQCVCtjEAynoGyesz4D0GxQKI0kDnzWU45+OyfHF6DJ+iR1DR0OCOe2FfSPRXAMULQKEqy+tfrINUBfAaGnWrVmladOcsv1E4Owl+T+vRKk7Zpdk3tqhuNTdYAbxFjdTFQxB2HIhGl13Nw/hkbbAC2LsfQDE0khcONkXoynWwD79ibG4FFC8O/kJij8XhW/jYTKDKVOC4EwfTZp/sagW+R/zInvBud0TAmCrCFX0NkaaQPh8At8+A5O0wJi49A8lW+i9ga78Z+cMNJ9wG13BFgwp7ry5K65g+F8APnxHUrRB8l5+D5P6IEPsjwLCcg9PWerxqjTZuAju3AlLkUQjapfHyURdM91PSc9VrgDG9uXsB5gdfpCYH670ErDvGuIgfpCZC+y77/2/FhYhfMiRLLN72KxA5gqoKqEyawcw6pPfb/1RbUQ3aQakZWGPvO8YSOUL9NgOdTQ3ebeiyvAhVchPGp98URRM5ghJEmB4pd7ReQQ+8wkhAB9CdAgaNoQv4BbWPyj93HaZ9AAAAAElFTkSuQmCC" alt="" onerror="this.src='https://cdn.discordapp.com/embed/avatars/0.png'">
   <div class="msg-body">
@@ -104,7 +128,8 @@ body{background:#1e1f22;color:#dcddde;font-family:'Segoe UI',sans-serif;font-siz
     <div class="msg-text">⚠️ Хэлэлцүүлгийн түүхийг хуулж байна. Энэ хувийн суваг 5 секундын дараа бүрмөсөн устах болно...</div>
   </div>
 </div>
+  </div>
+  <div class="footer"><span class="dot"></span>Retro.mn Support System · 2026.07.02 23:37:41 · <a href="https://retro.mn">retro.mn</a></div>
 </div>
-<div class="footer">Retro.mn Support — 2026.07.02 23:37:41</div>
 </body>
 </html>
